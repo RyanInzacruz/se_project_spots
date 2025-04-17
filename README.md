@@ -23,3 +23,11 @@ This webpage is deployed to GitHub Pages
 - [Deployment Link:](https://ryaninzacruz.github.io/se_project_spots/)
 
 ## Screenshots
+
+### Home Page
+
+![Home page](images/screenshots/Spots-screenshot-2.png)
+
+### Mobile-View
+
+![Mobile view](images/screenshots/Spots-screenshot-1.png)
