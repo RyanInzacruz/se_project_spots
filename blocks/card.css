@@ -18,6 +18,12 @@
 
 .card__title {
   margin: 12px 0 0;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  max-width: 353px;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
@@ -40,5 +46,9 @@
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
+  }
+
+  .card__title {
+    max-width: 250px;
   }
 }
