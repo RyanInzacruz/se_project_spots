@@ -6,4 +6,9 @@
 
 .footer__content {
   margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  color: #212121;
+  opacity: 70%;
 }

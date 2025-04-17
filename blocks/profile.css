@@ -5,6 +5,8 @@
 }
 
 .profile__avatar {
+  height: 190px;
+  width: 190px;
   margin-right: 20px;
   border-radius: 8px;
 }
@@ -16,17 +18,95 @@
 
 .profile__name {
   margin: 0 0 12px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  color: #212121;
 }
 
 .profile__description {
   margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: #212121;
+  opacity: 70%;
 }
 
 .profile__edit-btn {
   margin-top: auto;
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: #212121;
+  opacity: 70%;
+  text-align: left;
+}
+
+.profile__edit-btn:hover {
+  opacity: 100%;
+  cursor: pointer;
 }
 
 .profile__add-btn {
   margin-left: auto;
+  width: 149px;
+  height: 52px;
+  background-color: #212121;
+  box-shadow: none;
   border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: #fcf5e5;
+  align-self: flex-end;
 }
+
+.profile__add-btn:hover {
+  opacity: 80%;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__avatar {
+    margin: 0 0 12px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+
+  .profile__column {
+    /* margin: 0 0 32px; */
+  }
+
+  .profile__edit-btn {
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .profile .profile__add-btn {
+    margin: 0;
+    align-self: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+/* verify the rest of the font sizes and weights for the media
+inquiry as well as the rest of the distances between elements.
+Button styling needs to be changed as well as the size of the list items  */
