@@ -31,3 +31,7 @@ This webpage is deployed to GitHub Pages
 ### Mobile-View
 
 ![Mobile view](images/screenshots/Spots-screenshot-1.png)
+
+### Screen Recording
+
+![Screen Recording](https://drive.google.com/file/d/1-zU0zm0Fhbrl2_0E4EZLALTTpTz8oyug/view?usp=sharing)
