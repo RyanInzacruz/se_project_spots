@@ -34,4 +34,4 @@ This webpage is deployed to GitHub Pages
 
 ### Screen Recording
 
-![Screen Recording](https://drive.google.com/file/d/1-zU0zm0Fhbrl2_0E4EZLALTTpTz8oyug/view?usp=sharing)
+[Screen Recording](https://drive.google.com/file/d/1-zU0zm0Fhbrl2_0E4EZLALTTpTz8oyug/view?usp=sharing)
