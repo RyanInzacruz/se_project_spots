@@ -5,6 +5,7 @@
 }
 
 .profile__avatar {
+  object-fit: cover;
   height: 190px;
   width: 190px;
   margin-right: 20px;
@@ -46,6 +47,8 @@
 }
 
 .profile__edit-btn {
+  display: flex;
+  gap: 8px;
   margin-top: auto;
   border: none;
   background-color: transparent;
@@ -63,12 +66,16 @@
 }
 
 .profile__add-btn {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
   margin-left: auto;
   width: 149px;
   height: 52px;
   background-color: #212121;
-  box-shadow: none;
   border-radius: 8px;
+  border: none;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
@@ -79,7 +86,6 @@
 .profile__add-btn:hover {
   opacity: 80%;
   cursor: pointer;
-  box-shadow: none;
 }
 
 @media screen and (max-width: 627px) {
@@ -108,11 +114,11 @@
   }
 
   .profile__edit-btn {
-    text-align: center;
+    align-self: center;
     margin-top: 32px;
   }
 
-  .profile .profile__add-btn {
+  .profile__add-btn {
     margin: 0;
     align-self: center;
     margin-top: 20px;
