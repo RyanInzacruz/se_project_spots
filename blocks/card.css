@@ -27,6 +27,7 @@
 
 .card__like-btn {
   background: url(../images/like.svg) center / contain no-repeat;
+  cursor: pointer;
   opacity: 40%;
   width: 23px;
   height: 20px;
@@ -36,6 +37,7 @@
 }
 
 .card__like-btn:hover {
+  cursor: pointer;
   opacity: 100%;
 }
 
