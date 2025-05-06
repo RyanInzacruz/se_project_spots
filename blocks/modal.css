@@ -25,6 +25,7 @@
   border-radius: 8px;
   background-color: #fff;
   padding: 32px 50px;
+  box-sizing: border-box;
   position: relative;
 }
 
@@ -47,6 +48,7 @@
 
 .modal__title {
   margin: 0 0 32px;
+  color: rgba(33, 33, 33, 1);
   font-weight: 500;
   font-size: 32px;
   line-height: 100%;
@@ -62,7 +64,7 @@
   color: rgba(33, 33, 33, 0.7);
   font-weight: 500;
   font-size: 16px;
-  line-height: 110.00000000000001%;
+  line-height: 110%;
 }
 
 .modal__input {
@@ -74,7 +76,7 @@
   font-size: 20px;
   line-height: 1;
   border-radius: 8px;
-  border: 1px solid rgba(33, 33, 33, 0.4);
+  border: 1px solid rgba(33, 33, 33, 0.3);
   box-sizing: border-box;
 }
 
@@ -89,6 +91,9 @@
   height: 52px;
   border-radius: 8px;
   border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
   background-color: #212121;
   color: #fcf5e5;
 }
@@ -105,6 +110,8 @@
 @media screen and (max-width: 627px) {
   .modal__container {
     max-width: 300px;
+    width: calc(100%-20px);
+    margin: 0 10px;
     padding: 22px 12px;
   }
 
@@ -116,6 +123,10 @@
   .modal__title {
     font-size: 20px;
     margin: 0 0 24px;
+  }
+
+  .modal__input {
+    font-size: 16px;
   }
 
   .modal__label {
