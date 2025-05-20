@@ -186,11 +186,12 @@
     width: 100%;
     align-self: center;
   }
-}
-.modal__caption {
-  font-size: 16px;
-}
 
-.modal__image-container {
-  max-width: unset;
+  .modal__caption {
+    font-size: 16px;
+  }
+
+  .modal__image-container {
+    max-width: unset;
+  }
 }

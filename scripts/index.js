@@ -143,6 +143,8 @@ function handleNewPostSubmit(evt) {
 
   console.log(newPostCaption.value, newPostLink.value);
 
+  evt.target.reset();
+
   closeModal(newPostModal);
 }
 
