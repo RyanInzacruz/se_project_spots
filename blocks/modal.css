@@ -195,3 +195,12 @@
     max-width: unset;
   }
 }
+
+@media screen and (max-width: 320px) {
+  /* query put here to not override other media query */
+  .modal__image {
+    width: 288px;
+    max-width: none;
+    height: auto;
+  }
+}

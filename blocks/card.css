@@ -11,6 +11,10 @@
   border-radius: 8px;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__content {
   margin-top: 12px;
   display: flex;
