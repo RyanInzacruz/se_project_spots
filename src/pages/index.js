@@ -9,7 +9,7 @@ import profilePicSrc from "../images/avatar.jpg";
 import pencilIconSrc from "../images/Pencil.svg";
 import plusIconSrc from "../images/Plus.svg";
 import closeIconSrc from "../images/close.svg";
-import Api from "../scripts/Api.js";
+import Api from "../utils/Api.js";
 
 const logoImg = document.getElementById("logo-image");
 logoImg.src = logoImgSrc;
@@ -67,12 +67,19 @@ const api = new Api({
   },
 });
 
-api.getInitialCards().then((cards) => {
-  cards.forEach((item) => {
-    const cardElement = getCardElement(item);
-    cardList.append(cardElement);
-  });
-});
+api
+  .getAppInfo()
+  .then(([userInfo, cards]) => {
+    profileNameEl.textContent = userInfo.name;
+    profileDescriptionEl.textContent = userInfo.about;
+    profilePic.src = userInfo.avatar;
+
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardList.append(cardElement);
+    });
+  })
+  .catch(console.error);
 
 // Edit profile form elements
 const editProfileBtn = document.querySelector(".profile__edit-btn");
