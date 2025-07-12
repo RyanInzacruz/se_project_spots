@@ -22,11 +22,16 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            id="profile-picture"
-            alt="Bessie Coleman"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-btn">
+              <img id="profile__pencil-icon" alt="Pencil Icon" />
+            </button>
+            <img
+              id="profile-picture"
+              alt="Profile Picture"
+              class="profile__avatar"
+            />
+          </div>
 
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
@@ -179,6 +184,32 @@
           </div>
         </div>
       </div>
+      <!-- edit avatar modal -->
+      <div class="modal" id="avatar-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn">
+            <img class="close-icon" alt="Close icon" />
+          </button>
+          <h2 class="modal__title">Edit profile avatar</h2>
+          <form class="modal__form" id="avatar-form" novalidate>
+            <label for="profile-avatar-input" class="modal__label">
+              Profile Picture
+              <input
+                type="url"
+                id="profile-avatar-input"
+                class="modal__input"
+                name="link"
+                placeholder="Paste the link to an image"
+                required
+              />
+              <span id="profile-avatar-input-error" class="modal__error"></span>
+            </label>
+
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+      <!-- edit avatar modal -->
     </div>
   </body>
 </html>
