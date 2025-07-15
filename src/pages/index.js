@@ -34,6 +34,15 @@ document.querySelectorAll(".close-icon").forEach((icon) => {
   document.getElementById("profile__pencil-icon").src = pencilIconLightSrc;
 });
 
+document.getElementById("logo-image").alt = "Spots Logo";
+document.getElementById("profile__pencil-icon").alt = "Edit Avatar Icon";
+document.getElementById("pencil-icon").alt = "Edit Profile Icon";
+document.getElementById("plus-icon").alt = "New Post Icon";
+
+document.querySelectorAll(".close-icon").forEach((icon) => {
+  icon.alt = "Close Modal Icon";
+});
+
 // GLOBAL DOM ELEMENTS
 
 // Profile elements
