@@ -79,7 +79,7 @@ const avatarLink = avatarModal.querySelector("#profile-avatar-input");
 // Preview modal
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = previewModal.querySelector(
-  ".modal__close-btn-type-preview"
+  ".modal__close-btn_type_preview"
 );
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
@@ -93,9 +93,12 @@ const confirmDeleteCloseBtn =
 
 // API GET DATA
 
+let currentUserId = null;
+
 api
   .getAppInfo()
   .then(([userInfo, cards]) => {
+    currentUserId = userInfo._id;
     profileNameEl.textContent = userInfo.name;
     profileDescriptionEl.textContent = userInfo.about;
     profilePic.src = userInfo.avatar;
@@ -249,7 +252,10 @@ confirmDeleteBtn.addEventListener("click", () => {
         selectedCardId = null;
         closeModal(confirmDeleteModal);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        confirmDeleteBtn.textContent = "Delete";
+      });
   }
 });
 
@@ -312,7 +318,7 @@ function handleAvatarSubmit(evt) {
 }
 
 // Preview modal close
-previewModal.addEventListener("click", () => closeModal(previewModal));
+previewModalCloseBtn.addEventListener("click", () => closeModal(previewModal));
 
 // VALIDATION
 
@@ -350,3 +356,10 @@ enableValidation(settings);
 //     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
 //   },
 // ];
+
+//  handleLikeStatus(cardId, isLiked) {
+//     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+//       method: isLiked ? "DELETE" : "PUT",
+//       headers: this._headers,
+//     }).then(this._checkResponse);
+//   }
