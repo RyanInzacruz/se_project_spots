@@ -25,21 +25,28 @@ const api = new Api({
 });
 
 // Load images
-document.getElementById("logo-image").src = logoImgSrc;
-document.getElementById("profile-picture").src = profilePicSrc;
-document.getElementById("pencil-icon").src = pencilIconSrc;
-document.getElementById("plus-icon").src = plusIconSrc;
+const logoImage = document.getElementById("logo-image");
+const profilePic = document.getElementById("profile-picture");
+const pencilIcon = document.getElementById("pencil-icon");
+const plusIcon = document.getElementById("plus-icon");
+const profilePencilIcon = document.getElementById("profile__pencil-icon");
+
+// Set image src using imported assets
+logoImage.src = logoImgSrc;
+profilePic.src = profilePicSrc;
+pencilIcon.src = pencilIconSrc;
+plusIcon.src = plusIconSrc;
+profilePencilIcon.src = pencilIconLightSrc;
+
+// Set descriptive alt attributes
+logoImage.alt = "Spots Logo";
+profilePic.alt = "Current User Avatar";
+pencilIcon.alt = "Edit Profile Icon";
+plusIcon.alt = "New Post Icon";
+profilePencilIcon.alt = "Edit Avatar Icon";
+
 document.querySelectorAll(".close-icon").forEach((icon) => {
   icon.src = closeIconSrc;
-  document.getElementById("profile__pencil-icon").src = pencilIconLightSrc;
-});
-
-document.getElementById("logo-image").alt = "Spots Logo";
-document.getElementById("profile__pencil-icon").alt = "Edit Avatar Icon";
-document.getElementById("pencil-icon").alt = "Edit Profile Icon";
-document.getElementById("plus-icon").alt = "New Post Icon";
-
-document.querySelectorAll(".close-icon").forEach((icon) => {
   icon.alt = "Close Modal Icon";
 });
 
@@ -48,7 +55,6 @@ document.querySelectorAll(".close-icon").forEach((icon) => {
 // Profile elements
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
-const profilePic = document.getElementById("profile-picture");
 
 // Card elements
 const cardTemplate = document
@@ -158,19 +164,27 @@ function getCardElement(data) {
 
   // Like button functionality
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
+
+  if (data.isLiked) {
+    cardLikeBtnEl.classList.add("card__like-btn_active");
+  }
+
   cardLikeBtnEl.addEventListener("click", () => {
     const cardId = data._id;
-    if (cardLikeBtnEl.classList.contains("card__like-btn_active")) {
-      api
-        .removeLike(cardId)
-        .then(() => cardLikeBtnEl.classList.remove("card__like-btn_active"))
-        .catch(console.error);
-    } else {
-      api
-        .addLike(cardId)
-        .then(() => cardLikeBtnEl.classList.add("card__like-btn_active"))
-        .catch(console.error);
-    }
+    const isCurrentlyLiked = cardLikeBtnEl.classList.contains(
+      "card__like-btn_active"
+    );
+
+    api
+      .handleLikeStatus(cardId, isCurrentlyLiked)
+      .then((res) => {
+        if (res.isLiked) {
+          cardLikeBtnEl.classList.add("card__like-btn_active");
+        } else {
+          cardLikeBtnEl.classList.remove("card__like-btn_active");
+        }
+      })
+      .catch(console.error);
   });
 
   // Delete button functionality
@@ -216,8 +230,7 @@ function handleEditProfileSubmit(evt) {
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  const newPostSubmitBtn = addCardForm.querySelector(".modal__submit-btn");
-  newPostSubmitBtn.textContent = "Saving...";
+  cardSubmitBtn.textContent = "Saving...";
 
   const inputValues = {
     name: newPostCaption.value,
@@ -230,12 +243,12 @@ function handleNewPostSubmit(evt) {
       const cardElement = getCardElement(cardData);
       cardList.prepend(cardElement);
       evt.target.reset();
-      disableButton(newPostSubmitBtn, settings);
+      disableButton(cardSubmitBtn, settings);
       closeModal(newPostModal);
     })
     .catch(console.error)
     .finally(() => {
-      newPostSubmitBtn.textContent = "Create";
+      cardSubmitBtn.textContent = "Create";
     });
 }
 
@@ -365,10 +378,3 @@ enableValidation(settings);
 //     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
 //   },
 // ];
-
-//  handleLikeStatus(cardId, isLiked) {
-//     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-//       method: isLiked ? "DELETE" : "PUT",
-//       headers: this._headers,
-//     }).then(this._checkResponse);
-//   }
