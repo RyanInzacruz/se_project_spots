@@ -167,6 +167,93 @@
   border-radius: 8px;
 }
 
+#confirm-delete-modal .modal__title {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #212121;
+}
+
+#confirm-delete-modal .modal__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal__text {
+  margin: 0 0 32px;
+  color: rgba(33, 33, 33, 1);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+#confirm-delete-modal .modal__delete-btn {
+  width: 156px;
+  height: 52px;
+  border-radius: 8px;
+  padding: 18px 32px;
+  box-sizing: border-box;
+  background-color: rgba(255, 101, 101, 1);
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: rgba(33, 33, 33, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#confirm-delete-modal .modal__delete-btn:hover {
+  background-color: rgba(255, 51, 51, 1);
+}
+
+#confirm-delete-modal .modal__cancel-btn {
+  width: 156px;
+  height: 52px;
+  border-radius: 8px;
+  padding: 18px 32px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 1);
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: rgba(33, 33, 33, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #212121;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#confirm-delete-modal .modal__cancel-btn:hover {
+  background-color: rgba(33, 33, 33, 1);
+  color: #fff;
+}
+
+#confirm-delete-modal .modal__close-btn {
+  position: absolute;
+  top: 0px;
+  right: -52.5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#confirm-delete-modal .close-icon {
+  width: 40px;
+  height: 40px;
+}
+
 @media screen and (max-width: 480px) {
   .modal__container {
     max-width: 300px;
@@ -211,6 +298,31 @@
   .modal__image-container {
     max-width: unset;
   }
+
+  #confirm-delete-modal .modal__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #confirm-delete-modal .modal__delete-btn,
+  #confirm-delete-modal .modal__cancel-btn {
+    width: 156px;
+    height: 52px;
+    border-radius: 8px;
+    padding: 18px 32px;
+    box-sizing: border-box;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #confirm-delete-modal .modal__close-btn {
+    top: -48px;
+    right: 0px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -219,5 +331,9 @@
     width: 288px;
     max-width: none;
     height: auto;
+  }
+
+  #confirm-delete-modal {
+    padding: 0 16px;
   }
 }
